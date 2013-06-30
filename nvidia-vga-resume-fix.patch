@@ -1,0 +1,11 @@
+Index: sys/isa/vga_isa.c
+===================================================================
+diff --git a/head/sys/isa/vga_isa.c b/head/sys/isa/vga_isa.c
+--- a/head/sys/isa/vga_isa.c	(revision 251768)
++++ b/head/sys/isa/vga_isa.c	(working copy)
+@@ -379,4 +379,4 @@
+ 	0
+ };
+ 
+-DRIVER_MODULE(vgapm, vgapci, vgapm_driver, vgapm_devclass, 0, 0);
++DRIVER_MODULE_ORDERED(vgapm, vgapci, vgapm_driver, vgapm_devclass, NULL, NULL, SI_ORDER_ANY);
