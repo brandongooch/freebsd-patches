@@ -1,0 +1,19 @@
+Index: sys/dev/iwn/if_iwn.c
+===================================================================
+diff --git a/head/sys/dev/iwn/if_iwn.c b/head/sys/dev/iwn/if_iwn.c
+--- a/head/sys/dev/iwn/if_iwn.c	(revision 253048)
++++ b/head/sys/dev/iwn/if_iwn.c	(working copy)
+@@ -970,6 +970,13 @@
+ 	/* Clear device-specific "PCI retry timeout" register (41h). */
+ 	pci_write_config(dev, 0x41, 0, 1);
+ 
++	if (ifp->if_flags && IFF_UP) {
++		if (vap != NULL) {
++			iwn_init(sc);
++			ieee80211_init(vap);
++		}
++	}
++
+ 	ieee80211_resume_all(ic);
+ 	return 0;
+ }
