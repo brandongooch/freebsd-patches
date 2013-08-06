@@ -1,0 +1,13 @@
+Index: sys/net/if_tun.c
+===================================================================
+diff --git a/head/sys/net/if_tun.c b/head/sys/net/if_tun.c
+--- a/head/sys/net/if_tun.c	(revision 253950)
++++ b/head/sys/net/if_tun.c	(working copy)
+@@ -321,6 +321,7 @@
+ };
+ 
+ DECLARE_MODULE(if_tun, tun_mod, SI_SUB_PSEUDO, SI_ORDER_ANY);
++MODULE_VERSION(if_tun, 1);
+ 
+ static void
+ tunstart(struct ifnet *ifp)
